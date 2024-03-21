@@ -5,5 +5,6 @@ export class CreateUserParams {
 
 export class UpdateUserParams {
     username: string;
-    password: string;
+    password?: string;
+    darkmode?: boolean;
 }

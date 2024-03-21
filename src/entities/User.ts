@@ -14,6 +14,9 @@ export class User {
     @Column()
     password: string;
 
+    @Column({ nullable: true })
+    darkmode?: boolean;
+
     @Column({ nullable: false })
     createdAt: Date;
 

@@ -11,6 +11,12 @@ export class UsersController {
         return this.userService.findUsers();
     }
 
+    @Get(':id')
+    getUser(
+        @Param('id', ParseIntPipe) id: number) {
+        return this.userService.findUser(id);
+    }
+
     @Post()
     createUser(@Body() createUserDto: CreateUserDto) {
         return this.userService.createUser(createUserDto);
@@ -19,13 +25,13 @@ export class UsersController {
     @Patch(':id')
     updateUserById(
         @Param('id', ParseIntPipe) id: number,
-    @Body() updateUserDto : UpdateUserDto){
+        @Body() updateUserDto: UpdateUserDto) {
         return this.userService.updateUser(id, updateUserDto)
     }
 
     @Delete(':id')
     DeleteUserById(
-        @Param('id', ParseIntPipe) id: number ){
+        @Param('id', ParseIntPipe) id: number) {
         return this.userService.deleteUser(id)
     }
 

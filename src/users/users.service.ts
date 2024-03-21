@@ -10,9 +10,12 @@ export class UsersService {
     constructor(@InjectRepository(User) private userRepository: Repository<User>) { }
 
     findUsers() {
-        return this.userRepository.find({relations:['profile', 'posts']})
+        return this.userRepository.find({ relations: ['profile', 'posts'] })
     }
 
+    findUser(id: number) {
+        return this.userRepository.findOne({ where: { id } })
+    }
     createUser(userDetails: CreateUserParams) {
         const newUser = this.userRepository.create({ ...userDetails, createdAt: new Date() })
         return this.userRepository.save(newUser)

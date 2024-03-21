@@ -5,5 +5,6 @@ export class CreateUserDto {
 
 export class UpdateUserDto {
     username: string;
-    password: string;
+    password?: string;
+    darkmode?: boolean;
 }
